@@ -3,6 +3,7 @@
 from leafnode import LeafNode
 from parentnode import ParentNode
 
+
 def main():
   #node = TextNode("This is some anchor text",TextType.LINK ,"https://www.boot.dev")
   #node = HTMLNode(tag="p", value="Hello World!", props={"color":"red"})
