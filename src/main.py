@@ -1,5 +1,5 @@
 import shutil
-from generate_page import generate_page
+from generate_page import generate_pages_recursive
 
 def copyDirectory(source:str, destination:str):
     print(f"Copying content from {source} to {destination}")
@@ -8,6 +8,6 @@ def copyDirectory(source:str, destination:str):
 
 def main():
     copyDirectory("./static", "./public")
-    generate_page("./content/index.md", "template.html", "public/index.html")
+    generate_pages_recursive("./content", "template.html", "./public")
 
 main()
