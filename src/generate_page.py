@@ -9,7 +9,7 @@ def write_file_pathlib(file_path, content):
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(content)
 
-def generate_page(from_path, template_path, dest_path):
+def generate_page(from_path, template_path, dest_path, basepath = "/"):
   print(f"Generating page from {from_path} to {dest_path} using {template_path}")
   markdown_content = ''
   template_content = ''
@@ -21,15 +21,16 @@ def generate_page(from_path, template_path, dest_path):
   content = parentHTMLNode.to_html()
   title = extract_title(markdown_content)
   html = template_content.replace(r"{{ Title }}", title).replace(r"{{ Content }}", content)
+  html = html.replace(r'href="/', f'href="{basepath}').replace(r'src="/', f'src="{basepath}')
   write_file_pathlib(dest_path, html)
 
-def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
+def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, basepath = "/"):
   files = os.listdir(dir_path_content)
   for file in files:
     src_path = os.path.join(dir_path_content, file)
     if os.path.isdir(src_path):
-      generate_pages_recursive(src_path, template_path, os.path.join(dest_dir_path, file))
+      generate_pages_recursive(src_path, template_path, os.path.join(dest_dir_path, file), basepath)
     elif os.path.isfile(src_path):
       (filename, extension) = os.path.splitext(file)
       if extension == '.md':
-        generate_page(src_path, template_path,os.path.join(dest_dir_path,filename + '.html'))
+        generate_page(src_path, template_path,os.path.join(dest_dir_path,filename + '.html'), basepath)
