@@ -1,6 +1,5 @@
 import unittest
-from leafnode import LeafNode
-from parentnode import ParentNode
+from htmlnode import LeafNode,ParentNode
 
 class TestParentNode(unittest.TestCase):
   def test_missing_children(self):

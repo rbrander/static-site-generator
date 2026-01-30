@@ -1,5 +1,4 @@
 from enum import Enum
-import re
 
 class BlockType(Enum):
   HEADING = "heading"
@@ -8,7 +7,6 @@ class BlockType(Enum):
   QUOTE = "quote"
   UNORDERED_LIST = "unordered_list"
   ORDERED_LIST = "ordered_list"
-
 
 
 def block_to_block_type(block):

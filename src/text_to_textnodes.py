@@ -21,7 +21,7 @@ from split_nodes_image import split_nodes_image
 from split_nodes_link import split_nodes_link
 from textnode import TextNode, TextType
 
-def text_to_textnodes(text):
+def text_to_textnodes(text:str):
   if len(text) == 0:
     return []
 
