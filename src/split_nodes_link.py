@@ -1,5 +1,5 @@
 from textnode import TextNode, TextType
-from extract_markdown_links import extract_markdown_links
+from inline_markdown import extract_markdown_links
 
 def split_nodes_link(old_nodes):
   split_nodes = []

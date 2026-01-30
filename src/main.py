@@ -1,6 +1,5 @@
 import shutil
-from textnode import TextNode, TextType
-
+from generate_page import generate_page
 
 def copyDirectory(source:str, destination:str):
     print(f"Copying content from {source} to {destination}")
@@ -9,6 +8,6 @@ def copyDirectory(source:str, destination:str):
 
 def main():
     copyDirectory("./static", "./public")
-
+    generate_page("./content/index.md", "template.html", "public/index.html")
 
 main()

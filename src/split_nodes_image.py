@@ -1,5 +1,5 @@
 from textnode import TextNode, TextType
-from extract_markdown_images import extract_markdown_images
+from inline_markdown import extract_markdown_images
 
 def split_nodes_image(old_nodes):
   split_nodes = []
